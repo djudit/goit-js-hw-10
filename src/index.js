@@ -5,6 +5,12 @@ const loadCat = document.querySelector('.loader');
 const errorCat = document.querySelector('.error');
 const infoCat = document.querySelector('.cat-info');
 
+infoCat.style.display = 'flex';
+infoCat.style.gap = '20px';
+infoCat.style.fontFamily = 'Arial';
+infoCat.style.backgroundColor = '#E7EAEF';
+infoCat.style.padding = '10px';
+
 import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
 
 selectCat.style.visibility = 'hidden';
@@ -35,8 +41,8 @@ fetchBreeds()
   });
 
 selectCat.addEventListener('change', handleChange);
-function handleChange(evt) {
-  const selectedBreedId = evt.value;
+function handleChange() {
+  const selectedBreedId = selectCat.value;
 
   infoCat.innerHTML = '';
 
@@ -59,7 +65,7 @@ function handleChange(evt) {
         </div>
         `;
     })
-    .catch(error => {
+    .catch(err => {
       Notiflix.Notify.failure(
         'Oops! Something went wrong! Try reloading the page!'
       );

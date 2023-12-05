@@ -7,8 +7,8 @@ function fetchBreeds() {
   return axios
     .get('https://api.thecatapi.com/v1/breeds')
     .then(resp => resp.data)
-    .catch(error => {
-      console.log(error);
+    .catch(err => {
+      console.log(err);
       throw new Error(err);
     });
 }
@@ -17,8 +17,8 @@ function fetchCatByBreed(breedId) {
   return axios
     .get(`https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`)
     .then(resp => resp.data)
-    .catch(error => {
-      console.log(error);
+    .catch(err => {
+      console.log(err);
       throw new Error(err);
     });
 }
