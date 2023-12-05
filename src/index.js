@@ -1,4 +1,8 @@
 import Notiflix from 'notiflix';
+import SlimSelect from 'slim-select';
+// new SlimSelect({
+//   select: '.breed-select',
+// });
 
 const selectCat = document.querySelector('.breed-select');
 const loadCat = document.querySelector('.loader');
@@ -31,6 +35,11 @@ fetchBreeds()
       .join('');
 
     selectCat.insertAdjacentHTML('beforeend', breedCats);
+
+    // var select = new SlimSelect({
+    //   select: '.breed-select',
+    // });
+    // select.search('value');
   })
   .catch(err => {
     loadCat.style.visibility = 'hidden';
@@ -48,6 +57,9 @@ function handleChange() {
 
   // loadCat.style.visibility = 'visible';
   Notiflix.Notify.info('Loading data, please wait...');
+  // const newLoader = document.createElement('span');
+  // newLoader.after(loadCat);
+  // newLoader.classList.add('new-loader');
 
   fetchCatByBreed(selectedBreedId)
     .then(breeds => {
@@ -71,6 +83,7 @@ function handleChange() {
       );
     });
 }
+
 // --------------------------------------------------------------------
 
 // infoCat.insertAdjacentHTML('beforeend', createMarkup(data.results));
