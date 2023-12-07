@@ -9,6 +9,8 @@ const loadCat = document.querySelector('.loader');
 const errorCat = document.querySelector('.error');
 const infoCat = document.querySelector('.cat-info');
 
+loadCat.textContent = '';
+
 infoCat.style.display = 'flex';
 infoCat.style.gap = '20px';
 infoCat.style.fontFamily = 'Arial';
@@ -55,11 +57,8 @@ function handleChange() {
 
   infoCat.innerHTML = '';
 
-  // loadCat.style.visibility = 'visible';
-  Notiflix.Notify.info('Loading data, please wait...');
-  // const newLoader = document.createElement('span');
-  // newLoader.after(loadCat);
-  // newLoader.classList.add('new-loader');
+  loadCat.style.visibility = 'visible';
+  // Notiflix.Notify.info('Loading data, please wait...');
 
   fetchCatByBreed(selectedBreedId)
     .then(breeds => {
